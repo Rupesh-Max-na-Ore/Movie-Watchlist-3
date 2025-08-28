@@ -13,8 +13,6 @@ DB_PASSWORD = os.getenv("DB_PASSWORD")
 DB_HOST = os.getenv("DB_HOST", "localhost")
 DB_PORT = os.getenv("DB_PORT", "5432")
 
-# Test
-print("Connecting to database:", DB_NAME)
 
 import psycopg2
 
@@ -75,9 +73,6 @@ GET_ALL_USERS = "SELECT username FROM users;"
 CREATE_RELEASE_INDEX = (
     "CREATE INDEX IF NOT EXISTS idx_movies_release ON movies(release_timestamp);"
 )
-
-# # Establish connection to the SQLite database file named "data.db".
-# connection = sqlite3.connect("data.db")
 
 connection = psycopg2.connect(
     dbname=DB_NAME, user=DB_USER, password=DB_PASSWORD, host=DB_HOST, port=DB_PORT
